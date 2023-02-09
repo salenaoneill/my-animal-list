@@ -1,4 +1,4 @@
 -- for testing purposes...
-DROP DATABASE IF EXISTS myanimalreview_db;
+DROP DATABASE IF EXISTS animal_review_db;
 
-CREATE DATABASE myanimalreview_db;
+CREATE DATABASE animal_review_db;
