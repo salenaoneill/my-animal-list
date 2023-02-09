@@ -18,13 +18,12 @@ Comment.init(
             allowNull: false
 
         },
-        user_name: { // who wrote it; name or id?
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
-                key: 'name',
-            },
-
+                key: 'id'
+            }
         },
         review_id: { //what review is it attached to
             type: DataTypes.INTEGER,

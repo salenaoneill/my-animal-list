@@ -16,7 +16,7 @@ AnimalReview.init(
     image: { //data types.BLOB; otherwise simply store the pathway to the image here: perhaps they will be stored in public folder
 
     },
-    animal_Name: {
+    animal_name: {
         type: DataTypes.STRING,
         allowNull: false,
 
@@ -25,15 +25,13 @@ AnimalReview.init(
         type: DataTypes.TEXT,
        allowNull: false,
     },
-    user_name: { //name or id?
-        type: DataTypes.STRING,
+    user_id: {
+        type: DataTypes.INTEGER,
         references: {
             model: 'user',
-            key: 'name', //or 'id'
-        },
-
+            key: 'id'
+        }
     }
-
 },
 {
     sequelize,
