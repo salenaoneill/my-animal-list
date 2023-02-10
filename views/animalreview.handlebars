@@ -12,6 +12,27 @@
         <button type="submit">Add Comment</button>
     </div>
 </form>
-{{> comments review.comments}}
+{{> comments review.comments}} 
+
+{{#if !photo}}
+  <p>Upload a photo of your animal!</p>
+  <form method="post" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
+{{/if}}
+
+{{#if photo}}
+  {{#if (eq (typeof photo) 'object')}}
+    <p>Information about the uploaded asset:</p>
+    <pre>{{{json photo}}}</pre>
+    <img src="{{photo.secure_url}}">
+  {{/if}}
+  {{#if (neq (typeof photo) 'object')}}
+    <p>Your transformed image:</p>
+    <img src="{{photo}}">
+  {{/if}}
+{{/if}}
+
 
 <script src="/javascript/comment.js"></script>
