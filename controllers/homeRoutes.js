@@ -1,11 +1,24 @@
 const router = require("express").Router();
-const { User, Animal_review, Comment } = require("../models");
+const { User, Animalreview, Comment } = require("../models");
 const withAuth = require("../utils/auth");
-
 //Route for homepage render with login/signup options
 router.get("/", async (req, res) => {
   try {
-    res.render("homepage", { loggedIn: req.session.loggedIn });
+    // const animalData = await Animalreview.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ["name"],
+    //     },
+    //   ],
+    // });
+    // serialize data
+    //const animals = animalData.map((animal) => animal.get({ plain: true }));
+
+    res.render("homepage", {
+      image: "/assets/mascot.png",
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -13,13 +26,19 @@ router.get("/", async (req, res) => {
 
 //route for specific animal review page
 
-router.get("/animal_review/:id", withAuth, async (req, res) => {
+router.get("/animalreview/:id", withAuth, async (req, res) => {
   try {
-    const animalData = await Animal_review.findByPk(req.params.id, {
-      include: [{ model: User }, { model: Comment }],
+    const animalData = await Animalreview.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
     });
     const animal = animalData.get({ plain: true });
-    res.render("animal_review", { ...animal, loggedIn: req.session.loggedIn });
+
+    res.render("animalreview", { ...animal, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -27,14 +46,14 @@ router.get("/animal_review/:id", withAuth, async (req, res) => {
 
 // route for user profile page
 
-router.get("/profile", withAuth, async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Animal_review }],
     });
     const user = userData.get({ plain: true });
-    res.render("profile", { ...user, loggedIn: req.session.loggedIn });
+    res.render("dashboard", { ...user, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }

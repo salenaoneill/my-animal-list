@@ -1,21 +1,25 @@
 //import models
-const User = require('./User');
-const Comment = require('./Comment');
-const AnimalReview = require('./AnimalReview');
-
+const User = require("./User");
+const Comment = require("./Comment");
+const AnimalReview = require("./AnimalReview");
 
 //associations
 
-User.hasMany(AnimalReview)
+User.hasMany(AnimalReview, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
 
-User.hasMany(Comment)
+AnimalReview.belongsTo(User, {
+  foreignKey: "user_id",
+});
 
-AnimalReview.belongsTo(User)
+// User.hasMany(Comment);
 
-AnimalReview.hasMany(Comment)
+// AnimalReview.hasMany(Comment);
 
-Comment.belongsTo(User)
+// Comment.belongsTo(User);
 
-Comment.belongsTo(AnimalReview)
+// Comment.belongsTo(AnimalReview);
 
-
+module.exports = { User, AnimalReview, Comment };
