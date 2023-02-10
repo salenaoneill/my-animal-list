@@ -15,7 +15,10 @@ router.get("/", async (req, res) => {
     // serialize data
     //const animals = animalData.map((animal) => animal.get({ plain: true }));
 
-    res.render("homepage", { loggedIn: req.session.loggedIn });
+    res.render("homepage", {
+      image: "/assets/mascot.png",
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
