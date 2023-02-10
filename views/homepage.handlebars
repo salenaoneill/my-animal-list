@@ -1,0 +1,22 @@
+{{#each animalreviews as |animalreview|}}
+  <div class="row mb-4 post" id="post">
+    <div class="col-md-5">
+      <h2>
+
+        <a href="/post/{{animalreview.id}}">{{animalreview.name}}</a>
+      </h2>
+      <p>
+
+      </p>
+      <p>Created by
+        {{animalreview.user.name}}
+        on
+        {{format_date animalreview.date_created}}</p>
+    </div>
+    <div class="col-md-7">
+      <p>
+        {{animalreview.description}}
+      </p>
+    </div>
+  </div>
+{{/each}}
