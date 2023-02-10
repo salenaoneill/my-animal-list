@@ -1,0 +1,17 @@
+<section>
+    <a href="/dashboard">Return to Dashboard</a>
+    <div>
+       {{> review-info review}}  
+    </div>
+
+<form class="add-comment">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+    <div>
+        <button type="submit">Add Comment</button>
+    </div>
+</form>
+{{> comments review.comments}}
+
+<script src="/javascript/comment.js"></script>
