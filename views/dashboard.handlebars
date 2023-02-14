@@ -1,30 +1,42 @@
+<h1> Welcome {{name}}</h1>
+
 <section>
-    <h2>Create New Animal Review!</h2>
-    <form class="new-animal-review">
-        <div>
-            <label for="review-title">Post Title:</label>
-            <input type="text" id="review-title" name="review-title"/>
-        </div>
-        <div>
-            <label for="review-text">Post Text:</label>
-            <textarea id="review-text" name="review-text"></textarea>
-        </div>
-        <button type="submit" class="button">Create Animal Review!</button>
-    </form>
+  <h2>Create New Animal Review!</h2>
+  <form class="new-animal-review">
+    <div>
+      <label for="review-title">Post Title:</label>
+      <input type="text" id="review-title" name="review-title" />
+    </div>
+    <div>
+      <label for="review-text">Post Text:</label>
+      <textarea id="review-text" name="review-text"></textarea>
+    </div>
+    <button type="submit" class="button">Create Animal Review!</button>
+  </form>
 </section>
 
-{{#if animalreview.length}}
-<section>
+{{#if animalreviews}}
+  <section>
     <h2>Your Reviews</h2>
     <ol>
-        {{#each animalreviews as |animalreview|}}
-        <li>
-            {{> review-info review}}
-            <a href="/dashboard/edit/{{animalreview.id}}" class="edit-review">Edit Review</a>
-        </li>
-        {{/each}}
+      {{#each animalreviews as |AnimalReview|}}
+        <article class="review">
+          <header class="title">
+            <div>
+              <a href="/reviews/{{id}}">{{AnimalReview.animal_name}}</a>
+              <div>Post by:
+                {{user.name}}
+                on
+                {{format_date AnimalReview.date_created}}</div>
+            </div>
+            <div class="content">
+              <p>{{AnimalReview.contents}}</p>
+            </div>
+          </header>
+        </article>
+      {{/each}}
     </ol>
-</section>
+  </section>
 {{/if}}
 
 <script src="/javascript/add-review.js"></script>
