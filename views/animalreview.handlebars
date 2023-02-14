@@ -1,4 +1,4 @@
-{{!-- <section>
+<section>
     <a href="/dashboard">Return to Dashboard</a>
     <div>
        {{> review-info review}}  
@@ -14,13 +14,7 @@
 </form>
 {{> comments review.comments}} 
 
-{{#if !photo}}
-  <p>Upload a photo of your animal!</p>
-  <form method="post" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
-  </form>
-{{/if}}
+
 
 {{#if photo}}
   {{#if (eq (typeof photo) 'object')}}
@@ -31,11 +25,18 @@
   {{#if (neq (typeof photo) 'object')}}
     <p>Your transformed image:</p>
     <img src="{{photo}}">
-  {{/if}}
+  {{/if}} 
+{{else}}
+  <p>Upload a photo of your animal!</p>
+  <form method="post" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
 {{/if}}
 
 
-<script src="/javascript/comment.js"></script> --}}
+
+<script src="/javascript/comment.js"></script>
 
 <div id="single-post" class="text-center">
   <h2 id="title">{{animal_name}}</h2>

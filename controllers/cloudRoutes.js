@@ -34,7 +34,7 @@ const uploadImage = async filename => {
 };
 
 const index = (req, res) => {
-  return res.render('index', {
+  return res.render('animalreview', {
     intro: 'Welcome :)',
     photo: req.app.get('photo')
   });
