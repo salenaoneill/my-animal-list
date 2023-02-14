@@ -1,4 +1,4 @@
-<section>
+{{!-- <section>
     <a href="/dashboard">Return to Dashboard</a>
     <div>
        {{> review-info review}}  
@@ -35,4 +35,18 @@
 {{/if}}
 
 
-<script src="/javascript/comment.js"></script>
+<script src="/javascript/comment.js"></script> --}}
+
+<div id="single-post" class="text-center">
+  <h2 id="title">{{animal_name}}</h2>
+  <p id="desc">{{contents}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <!-- Add a new comment -->
+  <form id="add-comment" action="/api/comments" class ="new-comment-form" method="POST">
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="comm-butt">Submit</button>
+</div>
+<script src="./js/comment.js"></script>

@@ -1,23 +1,26 @@
-{{#each animalreviews as |animalreview|}}
+<h1> testing 123</h1>
+
+{{#each animals as |AnimalReview|}}
   <div class="row mb-4 post" id="post">
     <div class="col-md-5">
       <h2>
 
-        <a href="/post/{{animalreview.id}}">{{animalreview.name}}</a>
+        <a
+          href="/animalreview/{{AnimalReview.id}}"
+        >{{AnimalReview.animal_name}}</a>
       </h2>
       <p>
 
       </p>
       <p>Created by
-        {{animalreview.user.name}}
+        {{AnimalReview.user.name}}
         on
-        {{format_date animalreview.date_created}}</p>
+        {{format_date AnimalReview.date_created}}</p>
     </div>
     <div class="col-md-7">
       <p>
-        {{animalreview.description}}
+        {{AnimalReview.description}}
       </p>
     </div>
   </div>
 {{/each}}
-

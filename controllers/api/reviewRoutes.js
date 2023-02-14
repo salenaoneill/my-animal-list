@@ -7,20 +7,20 @@ const withAuth = require("../../utils/auth");
 //render all reviews
 router.get("/", (req, res) => {
   AnimalReview.findAll({
-    attributes: ["id", "image", "animal_name", "contents", "user_id"],
+    attributes: ["id", "animal_name", "contents", "user_id"],
     include: [
       {
         model: User,
         attributes: ["name"],
       },
-      {
-        model: Comment,
-        attributes: ["id", "contents", "user_id", "review_id"],
-        include: {
-          model: User,
-          attributes: ["name"],
-        },
-      },
+      // {
+      //   model: Comment,
+      //   attributes: ["id", "contents", "user_id", "review_id"],
+      //   include: {
+      //     model: User,
+      //     attributes: ["name"],
+      //   },
+      // },
     ],
   })
     //render reviews
