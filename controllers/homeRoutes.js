@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
 
     res.render("homepage", {
       animals,
+      image: "/assets/tiger-header.jpg",
       image: "/assets/mascot.png",
       loggedIn: req.session.loggedIn,
     });
