@@ -6,8 +6,13 @@
     <title>My Animal List</title>
   </head>
   <nav>
-
-    <img src="{{image}}" alt="image" />
+     <img src="{{image}}" alt="image" />
+     <a href="/dashboard">Dashboard</a>
+        {{#if loggedIn}}
+        <button id="logout" class="button">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
   </nav>
   <body>
 
