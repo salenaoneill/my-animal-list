@@ -61,7 +61,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.get("/", cloudRoutes.index);
+//app.get("/", cloudRoutes.index);
 //upload.fields is middleware that will add an array named 'file' to req
 //to the request such that req.files['file'][0] would reference 1 file
 app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
