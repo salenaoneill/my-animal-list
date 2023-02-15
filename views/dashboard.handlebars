@@ -11,6 +11,23 @@
       <label for="review-text">Post Text:</label>
       <textarea id="review-text" name="review-text"></textarea>
     </div>
+    {{#if photo}}
+      {{#if (eq (typeof photo) "object")}}
+        <p>Information about the uploaded asset:</p>
+        <pre>{{{json photo}}}</pre>
+        <img src="{{photo.secure_url}}" />
+      {{/if}}
+      {{#if (neq (typeof photo) "object")}}
+        <p>Your transformed image:</p>
+        <img src="{{photo}}" />
+      {{/if}}
+    {{else}}
+      <p>Upload a photo of your animal!</p>
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" />
+      </form>
+    {{/if}}
     <button type="submit" class="button">Create Animal Review!</button>
   </form>
 </section>
@@ -39,4 +56,4 @@
   </section>
 {{/if}}
 
-<script src="/javascript/add-review.js"></script>
+<script src="/js/add-review.js"></script>
