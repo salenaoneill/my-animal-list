@@ -3,18 +3,17 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-const helpers = require("./utils/helpers"); 
+const helpers = require("./utils/helpers");
 
-const cloudinary = require('cloudinary').v2; 
-const cloudRoutes = require('./controllers/cloudRoutes');
+const cloudinary = require("cloudinary").v2;
+const cloudRoutes = require("./controllers/cloudRoutes");
 
-
-// Configuration 
+// Configuration
 cloudinary.config({
   cloud_name: "dxjmp1tuv",
   api_key: "825679494516999",
-  api_secret: "kiR9vvpM4nSsqgCS96KSY9N2SLo"
-}); 
+  api_secret: "kiR9vvpM4nSsqgCS96KSY9N2SLo",
+});
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -23,10 +22,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers }); 
+const hbs = exphbs.create({ helpers });
 // set up routes
-
-
 
 const sess = {
   secret: "Super secret secret",
@@ -47,30 +44,27 @@ app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars"); 
+app.set("view engine", "handlebars");
 
-// multer 
-const multer = require('multer');
+// multer
+const multer = require("multer");
 
 //using the storage option
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'uploads/')
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
   },
-  filename: function(req, file, cb) {
-    cb(null, file.originalname)
-  }
-}); 
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
 
+const upload = multer({ storage });
 
-
-const upload = multer({ storage }); 
-
-
-app.get('/', cloudRoutes.index);
-// upload.fields is middleware that will add an array named 'file' to req 
-// to the request such that req.files['file'][0] would reference 1 file
-app.post('/upload', upload.fields([{ name: 'file' }]), cloudRoutes.upload);
+app.get("/", cloudRoutes.index);
+//upload.fields is middleware that will add an array named 'file' to req
+//to the request such that req.files['file'][0] would reference 1 file
+app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
