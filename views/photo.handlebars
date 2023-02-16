@@ -1,0 +1,12 @@
+{{#if photo}}  
+      <img src="{{photo}}" />
+      
+    {{else}}
+
+      <p>Upload a photo of your animal!</p>
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+      </form> 
+
+{{/if}}
