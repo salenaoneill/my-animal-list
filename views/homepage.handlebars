@@ -1,22 +1,27 @@
-<h1 class = "d-flex justify-content-center jumbotron p-3 p-md-5 rounded">Animal Reviews</h1>
+<h1 class="d-flex justify-content-center jumbotron p-3 p-md-5 rounded">Animal
+  Reviews</h1>
 
 {{#each animals as |AnimalReview|}}
-  <div class="row mb-4 post card text-white bg-secondary border-bottom border-black rounded" id="post">
+  <div
+    class="row mb-4 post card text-white bg-secondary border-bottom border-black rounded"
+    id="post"
+  >
     <div class="rounded col-md-5 card-body mt-0">
       <h2>
 
-        <a class = "card-meta text-white"
+        <a
+          class="card-meta text-white"
           href="/animalreview/{{AnimalReview.id}}"
         >{{AnimalReview.animal_name}}</a>
       </h2>
       <p>
 
       </p>
-      <p class ="fa-clock">Created by
-        {{AnimalReview.user.name}} 
+      <p class="fa-clock">Created by
+        {{AnimalReview.user.name}}
         on
         {{format_date date_created}}
-        </p>
+      </p>
     </div>
     <div class="col-md-7">
       <p>
