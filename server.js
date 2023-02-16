@@ -6,7 +6,7 @@ const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 
 const cloudinary = require("cloudinary").v2;
-const cloudRoutes = require("./controllers/cloudRoutes");
+const cloudRoutes = require("./cloudinary/cloudRoutes");
 
 // Configuration
 cloudinary.config({
@@ -61,7 +61,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-//app.get("/", cloudRoutes.index);
+app.get("/", cloudRoutes.index); 
+app.get("/", cloudRoutes.photoReview);
 //upload.fields is middleware that will add an array named 'file' to req
 //to the request such that req.files['file'][0] would reference 1 file
 app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
