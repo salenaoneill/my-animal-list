@@ -33,18 +33,13 @@ const uploadImage = async filename => {
 };
 
 const index = (req, res) => {
-  return res.render('dashboard', {
+  return res.render('photo', {
     intro: 'Welcome :)',
     photo: req.app.get('photo')
   });
 }; 
 
-const photoReview = (req, res) => { 
-  return res.render('animalreview', {
-    intro: 'Welcome :)',
-    photo: req.app.get('photo')
-  });
-}
+
 
 const upload = async (req, res) => {
   const uploadedFile = req.files.file[0]; //use the file that multer attached to the request
@@ -62,6 +57,5 @@ const upload = async (req, res) => {
 
 module.exports = {
   index,
-  upload, 
-  photoReview
+  upload
 };

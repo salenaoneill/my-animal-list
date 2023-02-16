@@ -27,7 +27,7 @@ Comment.init(
         },
         review_id: { //what review is it attached to
             type: DataTypes.INTEGER,
-            refernces: {
+            references: {
                 model: 'animalreview',
                 key: 'id',
             },

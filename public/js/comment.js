@@ -27,7 +27,7 @@ async function commentHandler(event) {
     else {
         alert(response.statusText);
     }
-}
+};
 
 //listens for the submit button to be clicked to call commentFormHandler function
 document.querySelector('.add-comment').addEventListener('submit', commentHandler);
