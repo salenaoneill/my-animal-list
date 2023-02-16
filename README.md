@@ -27,6 +27,7 @@ To use the app, log into MySQL and source the db/schema.sql file to establish th
 Then run the command "NPM run seed" to seed the database with a few reviews.
 Finally run the command "NPM start" to initialize the application.
 Once its up and running, Signup to create a new account and start posting!
+Here is a link to the deployed application https://my-animal-list.herokuapp.com/ 
 
 ## Credits
 
