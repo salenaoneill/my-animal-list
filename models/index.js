@@ -16,10 +16,14 @@ AnimalReview.belongsTo(User, {
 
 // User.hasMany(Comment);
 
-// AnimalReview.hasMany(Comment);
+AnimalReview.hasMany(Comment, { 
+  foreignKey: 'review_id',
+});
 
-// Comment.belongsTo(User);
+Comment.belongsTo(User, { 
+  foreignKey: 'user_id',
+});
 
-// Comment.belongsTo(AnimalReview);
+
 
 module.exports = { User, AnimalReview, Comment };

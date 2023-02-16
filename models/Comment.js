@@ -14,7 +14,7 @@ Comment.init(
 
         },
         contents: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false
 
         },
@@ -22,7 +22,7 @@ Comment.init(
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
-                key: 'id'
+                key: 'id',
             }
         },
         review_id: { //what review is it attached to

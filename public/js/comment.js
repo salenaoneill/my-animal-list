@@ -3,30 +3,24 @@ async function commentHandler(event) {
 
      //find and associate variables with user assigned value given 
     //to comment_text
-    const comment_text = document.querySelector('textarea[name="comment-body"]').value;
+    const comment_text = document.querySelector('#comment-body').value.trim();
 
     //get the post id from the url
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const post_id = document.querySelector('.add-comment').dataset.postid;
 //new comment created as a JSON object with post_id and comment_text
-    const response = await fetch('./api/comments', {
+if (comment_text) {
+    await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({
             post_id,
-            comment_text
+            comment_text,
         }),
         headers: {
             'Content-Type': 'application/json'
         }
     });
-//reload page
-    if (response.ok) {
-        document.location.reload();
-    }
-    else {
-        alert(response.statusText);
-    }
+    document.location.reload();
+}
 };
 
 //listens for the submit button to be clicked to call commentFormHandler function

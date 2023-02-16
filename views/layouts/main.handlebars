@@ -10,7 +10,7 @@
       rel="stylesheet"
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
-    />
+    /> 
     <!-- Bootstrap link -->
   </head>
   <header>
@@ -45,11 +45,10 @@
         <a class="p-2 text-muted" href="/dashboard">Dashboard</a>
         <a class="p-2 text muted" href="/photo">Photo</a>
         {{#if loggedIn}}
-          <button id="logout" class="button p-2 text-muted">Logout</button>
+          <button id="logout" class="btn p-2 text-muted">Logout</button>
         {{else}}
           <a class="btn p-2 text-muted" href="/login">Login</a>
         {{/if}}
-        <img src="/public/assets/mascot.png" alt="image" />
       </nav>
     </div>
   </header>
