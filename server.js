@@ -74,9 +74,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/photo", cloudRoutes.index); 
 app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
 
-
-
-
 app.use(routes);  
 
 
