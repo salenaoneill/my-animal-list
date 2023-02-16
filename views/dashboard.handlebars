@@ -25,7 +25,7 @@
     <ol>
       {{#each animalreviews as |AnimalReview|}}
         <article
-          style="border: 1px solid black; border-radius: 10px; background-color: rgb(233, 209, 177); font-size: 30px;"
+          style="border: 1px solid black; border-radius: 10px; background-color: rgb(233, 209, 177); font-size: 30px; text-align: center; margin-bottom: 5px;"
           class="review"
         >
           <header class="title">
@@ -39,9 +39,12 @@
             <div class="content">
               <p>{{AnimalReview.contents}}</p>
             </div>
-            <h3 class="display-4">Your Animal</h3>
-            <img class="container col-4" src="{{photo}}" />
-            <button data-id="{{AnimalReview.id}}" id="del-butt">Delete</button>
+
+            <button
+              data-id="{{AnimalReview.id}}"
+              id="del-butt"
+              style="border-radius: 10px; margin: 5px;"
+            >Delete</button>
           </header>
         </article>
       {{/each}}
