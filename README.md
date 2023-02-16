@@ -2,6 +2,11 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Testing](#Testing)
+- [License](#License)
+
 
 ## Description
 Have you ever had strong opinions about a specific animal? If youre like me, you have. The issue is, no good platform exists to share these opinions. Enter, My Animal List. A place where one can add a review of any animal they choose! This application is meant to provide an open dialouge for likes and dislikes of animals. A user can signup or log back in and immediately be taken to their dashboard. Where they can either add a new review of the neighbors dog, or just look back at all the previous reviews they have posted. If a little exploring is what they would prefer, the homepage is populated with animal reviews to scroll through. Posted by people from all walks of life! 
