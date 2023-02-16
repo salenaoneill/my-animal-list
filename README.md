@@ -13,7 +13,7 @@ Have you ever had strong opinions about a specific animal? If youre like me, you
 
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [Testing](#Testing)
+- [Credits](#Credits)
 - [License](#License)
 
 ## Installation
