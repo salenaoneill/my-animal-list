@@ -16,8 +16,7 @@ const uploadImage = async filename => {
     });
     console.log('after cloudinary upload',photo)
     
-    //return the "raw" asset (uncomment the return statement below)
-    // return photo;
+    
 
     // return transformed img (uncomment the return statement below)
     return await cloudinary.url(photo.public_id, {
@@ -34,11 +33,18 @@ const uploadImage = async filename => {
 };
 
 const index = (req, res) => {
+  return res.render('dashboard', {
+    intro: 'Welcome :)',
+    photo: req.app.get('photo')
+  });
+}; 
+
+const photoReview = (req, res) => { 
   return res.render('animalreview', {
     intro: 'Welcome :)',
     photo: req.app.get('photo')
   });
-};
+}
 
 const upload = async (req, res) => {
   const uploadedFile = req.files.file[0]; //use the file that multer attached to the request
@@ -56,5 +62,6 @@ const upload = async (req, res) => {
 
 module.exports = {
   index,
-  upload
+  upload, 
+  photoReview
 };

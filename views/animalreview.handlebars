@@ -1,50 +1,21 @@
 <section>
     
-<div id="single-post" class="text-center">
-  <h2 id="title">{{animal_name}}</h2>
-  <p id="desc">{{contents}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+<div id="single-post" class="text-center card jumbotron p-3 p-md-5 bg-success rounded">
+  <h2 class="page-header display-2"id="title">{{animal_name}}</h2>
+  <p class = "card-body display-6" id="desc">{{contents}}</p>
+  <img src="{{photo}}" />
+  <p>Created by {{user.name}} on {{format_date date_created}}</p> 
+  
   <!-- Add a new comment -->
   <form id="add-comment" action="/api/comments" class ="new-comment-form" method="POST">
     <div class="form-group">
-      <label for="comment">Comment</label>
+      <label for="comment">Add a Comment</label>
       <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" id="comm-butt">Submit</button>
 </div>
 <script src="./js/comment.js"></script>
-{{!-- <div class="comments">
-    {{#each this}}
-    <section class="comment">
-        <div class="meta">
-            {{user.name}} on {{format_date comment.date_created}}
-        </div>
-        <div class="text">
-            {{comment.contents}}
-        </div>
-    </section>
-    {{/each}}
-</div> --}}
 
-
-
-{{!-- {{#if photo}}
-  {{#if (eq (typeof photo) 'object')}}
-    <p>Information about the uploaded asset:</p>
-    <pre>{{{json photo}}}</pre>
-    <img src="{{photo.secure_url}}">
-  {{/if}}
-  {{#if (neq (typeof photo) 'object')}}
-    <p>Your transformed image:</p>
-    <img src="{{photo}}">
-  {{/if}} 
-{{else}}
-  <p>Upload a photo of your animal!</p>
-  <form method="post" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
-  </form>
-{{/if}} --}}
 
 
 
