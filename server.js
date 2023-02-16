@@ -75,7 +75,7 @@ app.use(routes);
 app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
 
 app.get("/", cloudRoutes.index); 
-// app.get("/", cloudRoutes.photoReview);
+app.get("/", cloudRoutes.photoReview);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
