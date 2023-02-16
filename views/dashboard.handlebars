@@ -19,8 +19,6 @@
   </form>
 </section>
 
-
-
 {{#if animalreviews}}
   <section>
     <h2>Your Reviews</h2>
@@ -43,11 +41,13 @@
             </div>
             <h3 class="display-4">Your Animal</h3>
             <img class="container col-4" src="{{photo}}" />
+            <button data-id="{{AnimalReview.id}}" id="del-butt">Delete</button>
           </header>
         </article>
       {{/each}}
     </ol>
   </section>
+  <script src="/js/delete.js"></script>
 {{/if}}
 
 <script src="/js/add-review.js"></script>
