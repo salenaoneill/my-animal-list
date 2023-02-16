@@ -21,10 +21,13 @@ Once its up and running, Signup to create a new account and start posting!
 
 ## Credits
 
-Will Burnton,
-Colin Bradshaw,
-Salena ONeill,
-Connor Beer
+Will Burnton, @wburnton
+
+Colin Bradshaw, @lilcguy
+
+Salena ONeill, @salenaoneill
+
+Connor Beer, @CBshmear
 
 Much time was spent referencing the Cloudinary and Handlebars.js documentation.
 https://cloudinary.com/documentation
