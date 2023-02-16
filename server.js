@@ -61,17 +61,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.get("/", cloudRoutes.index); 
-app.get("/", cloudRoutes.photoReview);
+
 //upload.fields is middleware that will add an array named 'file' to req
 //to the request such that req.files['file'][0] would reference 1 file
-app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(routes);
+app.use(routes);  
+
+app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
+
+app.get("/", cloudRoutes.index); 
+// app.get("/", cloudRoutes.photoReview);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
