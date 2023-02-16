@@ -4,20 +4,21 @@
   <h2 class="page-header display-2"id="title">{{animal_name}}</h2>
   <p class = "card-body display-6" id="desc">{{contents}}</p>
   <img src="{{photo}}" />
-  <p>Created by {{user.name}} on {{format_date date_created}}</p> 
-  
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>  
+  {{#each comments as |comment|}} 
+    <p>{{comment.contents}}</p>
+  {{/each}}
   <!-- Add a new comment -->
-  <form id="add-comment" action="/api/comments" class ="new-comment-form" method="POST">
+  <form class="add-comment" action="/api/comments"  method="POST" data-postid={{id}}</form>
     <div class="form-group">
       <label for="comment">Add a Comment</label>
-      <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+      <textarea class="form-control" name="comment-body" id="comment-body" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" id="comm-butt">Submit</button>
 </div>
-<script src="./js/comment.js"></script>
-
-
-
-
 <script src="/js/comment.js"></script>
+
+
+
+
 
