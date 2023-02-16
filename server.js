@@ -70,13 +70,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(routes);  
 
+app.get("/photo", cloudRoutes.index); 
 app.post("/upload", upload.fields([{ name: "file" }]), cloudRoutes.upload);
 
 
-app.get("/", cloudRoutes.index); 
-app.get("/", cloudRoutes.photoReview);
+
+
+app.use(routes);  
+
+
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
